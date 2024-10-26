@@ -1,0 +1,194 @@
+List Comprehension:
+
+List comprehension is a way to create lists using a concise syntax. It allows us to generate a new list by applying an expression to each item in an existing iterable (such as a list or range). This helps us to write cleaner, more readable code compared to traditional looping techniques.
+
+
+
+a = [2,3,4,5]
+
+res = [val ** 2 for val in a]
+
+print(res)
+
+
+Syntax of list comprehension
+[expression for item in iterable if condition]
+
+
+expression: The transformation or value to be included in the new list.
+item: The current element taken from the iterable.
+iterable: A sequence or collection (e.g., list, tuple, set).
+if condition (optional): A filtering condition that decides whether the current item should be included.
+
+for loop vs. list comprehension
+--------------------------------
+The main difference is that a for loop requires multiple lines to create a new list by iterating over items and manually adding each one. Whereas, list comprehension do the same task in a single line, this makes the code simpler and easier to read.
+
+#By for loop
+a = [1, 2, 3, 4, 5]
+
+# Create an empty list 'res' to store results
+res = []
+
+# Iterate over each element in list 'a'
+for val in a:
+  
+    # Multiply each element by 2 and append it to 'res'
+    res.append(val * 2)
+
+print(res)
+
+
+#by comp
+
+a = [1, 2, 3, 4, 5]
+
+res = [val * 2 for val in a]
+
+print(res)
+
+
+
+
+
+
+Conditional statements in list comprehension
+List comprehensions can include conditional statements to filter or modify items based on specific criteria. These conditionals help us create customized lists quickly and making the code cleaner and more efficient.
+
+
+a = [1, 2, 3, 4, 5]
+
+res = [val for val in a if val % 2 == 0]
+
+print(res)
+
+
+Creating a list from a range:
+
+# Creates a list of numbers from 0 to 9
+a = [i for i in range(10)]
+
+print(a)
+
+
+Using nested loops:
+-------------------
+
+# Creates a list of tuples representing all combinations of (x, y)
+# where both x and y range from 0 to 2.
+coordinates = [(x, y) for x in range(3) for y in range(3)]
+
+print(coordinates)
+
+
+Flattening a list of lists:
+--------------------------
+mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+res = [val for row in mat for val in row]
+
+print(res)
+
+
+
+Nested List Comprehensions:
+---------------------------
+
+List Comprehension are one of the most amazing features of Python. It is a smart and concise way of creating lists by iterating over an iterable object. Nested List Comprehensions are nothing but a list comprehension within another list comprehension which is quite similar to nested for loops.
+
+Syntax:
+
+Syntax: new_list = [[expression for item in list] for item in list]
+
+
+Parameters:
+
+Expression: Expression that is used to modify each item in the statement
+Item: The element in the iterable
+List: An iterable object
+
+Creating a Matrix Without List Comprehension:
+
+matrix = []
+for i in range(5):
+    # Append an empty sublist inside the list
+    matrix.append([])
+    for j in range(5):
+        matrix[i].append(j)
+print(matrix)
+
+
+Using List Comprehension:
+
+# Nested list comprehension
+matrix = [[j for j in range(5)] for i in range(5)]
+ 
+print(matrix)
+
+
+Filtering a Nested List Using List Comprehension:
+
+Without Using List Comprehension
+
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ 
+odd_numbers = []
+for row in matrix:
+    for element in row:
+        if element % 2 != 0:
+            odd_numbers.append(element)
+ 
+print(odd_numbers)
+
+Using List Comprehension:
+
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ 
+odd_numbers = [
+    element for row in matrix for element in row if element % 2 != 0]
+ 
+print(odd_numbers)
+
+
+Manipulate String Using List Comprehension
+Without List Comprehension
+
+matrix = [["apple", "banana", "cherry"],
+          ["date", "fig", "grape"],
+          ["kiwi", "lemon", "mango"]]
+ 
+modified_matrix = []
+for row in matrix:
+    modified_row = []
+    for fruit in row:
+        modified_row.append(fruit.capitalize())
+    modified_matrix.append(modified_row)
+ 
+print(modified_matrix)
+
+With List Comprehension:
+
+matrix = [["apple", "banana", "cherry"],
+          ["date", "fig", "grape"],
+          ["kiwi", "lemon", "mango"]]
+ 
+modified_matrix = [[fruit.capitalize() for fruit in row] for row in matrix]
+ 
+print(modified_matrix)
+
+
+
+List Comprehension With Two Lists:
+list_a = [1, 2, 3, 4]
+list_b = [5, 6, 7, 8]
+
+result = [a + b for a, b in zip(list_a, list_b)]
+print(result)
+
+Using Conditional Statement
+
+list_a = [1, 2, 3, 4]
+list_b = [5, 6, 7, 8]
+
+result = [a + b for a, b in zip(list_a, list_b) if (a + b) % 2 == 0]
+print(result)
